@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chapter 2: What’s the Story we’ll implement? &#8212; Zero To Blockchain 1.4.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 3: Creating the Blockchain Environment" href="C03.html" />
+    <link rel="prev" title="Chapter 1: What is Blockchain? Concept and Architecture Overview" href="C01.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="C03.html" title="Chapter 3: Creating the Blockchain Environment"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="C01.html" title="Chapter 1: What is Blockchain? Concept and Architecture Overview"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Zero To Blockchain 1.4.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="chapter-2-what-s-the-story-we-ll-implement">
+<h1>Chapter 2: What&#8217;s the Story we&#8217;ll implement?<a class="headerlink" href="#chapter-2-what-s-the-story-we-ll-implement" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Dispute resolution requires gathering and correlating facts from multiple parties. This is a slow and labor intensive effort, which ties up over $100M at any point in time.</li>
+<li>In this example, those parties are:
+- The Finance Organization
+- The Buyer
+- The Seller
+- The Provider
+- The Shipper</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="the-basic-stories">
+<h2>The Basic Stories<a class="headerlink" href="#the-basic-stories" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>As a Finance Organization, I want to see the finance related status of every order executed by my clients when they are using my credit services instantly and in real-time</li>
+<li>This will allow me to manage dispute resolution over the phone immediately rather than taking multiple weeks to resolve a dispute.</li>
+<li>As a seller, I want to see the order, shipping and finance status of every sale in the system.</li>
+<li>As a buyer, I want to see the real-time status of every order.</li>
+<li>As a buyer, I want to be able to initiate a dispute with the click of a single button and provide all required data automatically to my finance organization</li>
+<li>As a manufacturer, I want to be able to see all open orders and the shipment status on all orders.</li>
+<li>As a shipper, I want to be able to interact with this system with as little change as possible on my end.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Chapter 2: What&#8217;s the Story we&#8217;ll implement?</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#the-basic-stories">The Basic Stories</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="C01.html"
+                        title="previous chapter">Chapter 1: What is Blockchain? Concept and Architecture Overview</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="C03.html"
+                        title="next chapter">Chapter 3: Creating the Blockchain Environment</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/C02.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="C03.html" title="Chapter 3: Creating the Blockchain Environment"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="C01.html" title="Chapter 1: What is Blockchain? Concept and Architecture Overview"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Zero To Blockchain 1.4.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, IBM, Bob Dill.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chapter 11: Building the Unified User Experience &#8212; Zero To Blockchain 1.4.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 12: Implementing Business Events" href="C12.html" />
+    <link rel="prev" title="Chapter 10: Building the Cinance Company Services and User Experience" href="C10.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="C12.html" title="Chapter 12: Implementing Business Events"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="C10.html" title="Chapter 10: Building the Cinance Company Services and User Experience"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Zero To Blockchain 1.4.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="chapter-11-building-the-unified-user-experience">
+<h1>Chapter 11: Building the Unified User Experience<a class="headerlink" href="#chapter-11-building-the-unified-user-experience" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In this chapter, we will integrate the User Experiences for Buyer, Seller, Provider and Shipper in a single web page to streamline demonstrating the network.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Chapter 11
+↳ controller
+    ↳restapi
+    router.js
+        ↳features
+        ↳composer
+            autoLoad.js
+            hlcAdmin.js
+            hlcClient.js
+            queryBlockChain.js
+            Z2B_Services.js
+            Z2B_Utilities.js
+        ↳ text
+            multi-lingual.js
+            resources.js
+↳ HTML
+    index.html
+    admin.html
+    buyer.html
+    ceateConnectionProfile.html
+    createMember.html
+    createOrder.html
+    deleteConnectionProfile.html
+    financeCo.html
+    getMemberSecret.html
+    removeMember.html
+    provider.html
+    seller.html
+    shipper.html
+    singleUX.html
+    ↳CSS
+    pageStyles.css
+    ↳js
+    z2b-admin.js
+    z2b-buyer.js
+    z2b-events.js
+    z2b-financeCo.js
+    z2b-initiate.js
+    z2b-provider.js
+    z2b-seller.js
+    z2b-shipper.js
+    z2b-utilities.js
+↳ network
+permissions.acl
+queries.qry
+    ↳lib
+    sample.js
+    ↳models
+    base.cto
+    events.cto
+    sample.cto
+</pre></div>
+</div>
+<p>One new file is created and two existing files are updated:</p>
+<dl class="docutils">
+<dt>Web Server Code Unique to this Chapter</dt>
+<dd><ul class="first last simple">
+<li><strong>no updates</strong></li>
+</ul>
+</dd>
+</dl>
+<p>### Defining the business network</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>no updates</strong></li>
+</ul>
+</div></blockquote>
+<dl class="docutils">
+<dt>### Web Browser Code Unique to this Chapter</dt>
+<dd><ul class="first last simple">
+<li><strong>singleUX.html</strong>
+This page loads a 2x2 table, with one cell each for Buyer (top left), Seller (top right), Provider (bottom left) and Shipper (bottom right).</li>
+<li><strong>z2b-events.js</strong>
+This the loadSingleUX() function is updated to simultaneously display all four members simultaneously</li>
+<li><strong>CSS/pageStyles.css</strong>
+CSS controls the look and feel of a web page. This file is updated to support putting all four roles into a single web page at the same time.</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Chapter 11: Building the Unified User Experience</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="C10.html"
+                        title="previous chapter">Chapter 10: Building the Cinance Company Services and User Experience</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="C12.html"
+                        title="next chapter">Chapter 12: Implementing Business Events</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/C11.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="C12.html" title="Chapter 12: Implementing Business Events"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="C10.html" title="Chapter 10: Building the Cinance Company Services and User Experience"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Zero To Blockchain 1.4.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, IBM, Bob Dill.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chapter 12: Implementing Business Events &#8212; Zero To Blockchain 1.4.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 13: Deploying your demo Blockchain to the IBM Cloud" href="C13.html" />
+    <link rel="prev" title="Chapter 11: Building the Unified User Experience" href="C11.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="C13.html" title="Chapter 13: Deploying your demo Blockchain to the IBM Cloud"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="C11.html" title="Chapter 11: Building the Unified User Experience"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Zero To Blockchain 1.4.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="chapter-12-implementing-business-events">
+<h1>Chapter 12: Implementing Business Events<a class="headerlink" href="#chapter-12-implementing-business-events" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In this chapter, we will update the code from Chapter 11 to include event creation and monitoring on the server and event subscription and notification in the browser.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Chapter 12
+↳ controller
+    ↳restapi
+    router.js
+        ↳features
+        ↳composer
+            autoLoad.js
+            hlcAdmin.js
+            hlcClient.js          &lt;== Updated
+            queryBlockChain.js
+            Z2B_Services.js       &lt;== Updated
+            Z2B_Utilities.js
+        ↳ text
+            multi-lingual.js
+            resources.js
+↳ HTML
+    index.html
+    admin.html
+    buyer.html                     &lt;== Updated
+    ceateConnectionProfile.html
+    createMember.html
+    createOrder.html
+    deleteConnectionProfile.html
+    financeCo.html                 &lt;== Updated
+    getMemberSecret.html
+    removeMember.html
+    provider.html                  &lt;== Updated
+    seller.html                    &lt;== Updated
+    shipper.html                   &lt;== Updated
+    singleUX.html
+    ↳CSS
+    pageStyles.css
+    ↳js
+    z2b-admin.js
+    z2b-buyer.js                &lt;== Updated
+    z2b-events.js               &lt;== Updated
+    z2b-financeCo.js            &lt;== Updated
+    z2b-initiate.js
+    z2b-provider.js             &lt;== Updated
+    z2b-seller.js               &lt;== Updated
+    z2b-shipper.js              &lt;== Updated
+    z2b-utilities.js
+↳ network
+permissions.acl
+queries.qry
+    ↳lib
+    sample.js                    &lt;== Updated
+    ↳models
+    base.cto
+    events.cto
+    sample.cto                   &lt;== Updated
+</pre></div>
+</div>
+<p>No new files are created.  Fifteen existing files are updated:</p>
+</div>
+<div class="section" id="web-server-code-unique-to-this-chapter">
+<h2>Web Server Code Unique to this Chapter<a class="headerlink" href="#web-server-code-unique-to-this-chapter" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><strong>hlcClient.jss</strong><ul>
+<li>add event monitoring to client routines</li>
+<li>add event notification to browser via web socket.
+- it should be noted that this is a rough implementation for notifying the user of asynchronous events and is appropriate for a lightweight demo but inappropriate for a PoC or a production system.</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="defining-the-business-network">
+<h2>Defining the business network<a class="headerlink" href="#defining-the-business-network" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><strong>/models/sample.CTO</strong>
+add events to sample.CTO file</li>
+<li><strong>/lib/sample.js</strong>
+add event notification to transactions</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="web-browser-code-unique-to-this-chapter">
+<h2>Web Browser Code Unique to this Chapter<a class="headerlink" href="#web-browser-code-unique-to-this-chapter" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><strong>all UX files</strong>
+Add placeholder for notification icon and add placeholder for notification counter.</li>
+<li><strong>all UX javascript files</strong>
+use subscribe, unsubscribe and notifyMe routines</li>
+<li><strong>z2b-events.js</strong>
+add event support for alert subscription, notification</li>
+<li><strong>CSS/pageStyles.css</strong>
+add support for notification icon and text</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Chapter 12: Implementing Business Events</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#web-server-code-unique-to-this-chapter">Web Server Code Unique to this Chapter</a></li>
+<li><a class="reference internal" href="#defining-the-business-network">Defining the business network</a></li>
+<li><a class="reference internal" href="#web-browser-code-unique-to-this-chapter">Web Browser Code Unique to this Chapter</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="C11.html"
+                        title="previous chapter">Chapter 11: Building the Unified User Experience</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="C13.html"
+                        title="next chapter">Chapter 13: Deploying your demo Blockchain to the IBM Cloud</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/C12.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="C13.html" title="Chapter 13: Deploying your demo Blockchain to the IBM Cloud"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="C11.html" title="Chapter 11: Building the Unified User Experience"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Zero To Blockchain 1.4.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, IBM, Bob Dill.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>
